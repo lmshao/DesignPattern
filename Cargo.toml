@@ -1,0 +1,27 @@
+[workspace]
+resolver = "2"
+members = [
+    "creational/singleton",
+    "creational/factory_method",
+    "creational/abstract_factory",
+    "creational/builder",
+    "creational/prototype",
+    "structural/adapter",
+    "structural/bridge",
+    "structural/composite",
+    "structural/decorator",
+    "structural/facade",
+    "structural/flyweight",
+    "structural/proxy",
+    "behavioral/chain_of_responsibility",
+    "behavioral/command",
+    "behavioral/interpreter",
+    "behavioral/iterator",
+    "behavioral/mediator",
+    "behavioral/memento",
+    "behavioral/observer",
+    "behavioral/state",
+    "behavioral/strategy",
+    "behavioral/template_method",
+    "behavioral/visitor"
+]
