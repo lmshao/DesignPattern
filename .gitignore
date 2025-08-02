@@ -1,3 +1,11 @@
 # Added by cargo
 /target
 Cargo.lock
+
+# C++ build files (now in target/cpp/)
+*.o
+*.exe
+*.out
+
+# IDE and editor files
+.vscode/

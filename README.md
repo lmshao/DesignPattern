@@ -36,9 +36,11 @@ This repository covers 23 classic design patterns, divided into three categories
 
 ## Build and Run
 
-This repository uses Rust workspace to manage all design patterns, with each pattern implemented as an independent crate.
+This repository provides **dual-language** implementations with both **Rust** and **C++** examples. Each design pattern is implemented as an independent module.
 
-### Build All Design Patterns
+### 🦀 Rust Examples
+
+#### Build All Rust Examples
 
 Run the following command in the project root directory:
 
@@ -46,7 +48,7 @@ Run the following command in the project root directory:
 cargo build
 ```
 
-### Run a Specific Design Pattern
+#### Run a Specific Rust Example
 
 For example, to run singleton:
 
@@ -55,6 +57,34 @@ cargo run -p singleton
 ```
 
 Replace `singleton` with the crate name you want to run.
+
+### ⚡ C++ Examples
+
+#### Build All C++ Examples
+
+Run the following command in the project root directory:
+
+```bash
+make
+```
+
+#### Run a Specific C++ Example
+
+For example, to run command pattern:
+
+```bash
+make run singleton
+```
+
+Replace `singleton` with the crate name you want to run.
+
+#### Other C++ Commands
+
+```bash
+make list     # List all available C++ examples
+make clean    # Clean C++ build files
+make help     # Show help information
+```
 
 ---
 
@@ -93,9 +123,11 @@ Replace `singleton` with the crate name you want to run.
 
 ## 编译与运行
 
-本仓库采用 Rust workspace 管理所有设计模式，每个设计模式为独立 crate。
+本仓库提供 **两种语言** 实现，包含 **Rust** 和 **C++** 示例。每个设计模式都实现为独立模块。
 
-### 编译所有设计模式
+### 🦀 Rust 示例
+
+#### 编译所有 Rust 示例
 
 在项目根目录下执行：
 
@@ -103,7 +135,7 @@ Replace `singleton` with the crate name you want to run.
 cargo build
 ```
 
-### 运行某个设计模式
+#### 运行某个 Rust 示例
 
 以 singleton 为例：
 
@@ -112,3 +144,31 @@ cargo run -p singleton
 ```
 
 将 `singleton` 替换为你想运行的 crate 名称即可。
+
+### ⚡ C++ 示例
+
+#### 编译所有 C++ 示例
+
+在项目根目录下执行：
+
+```bash
+make
+```
+
+#### 运行某个 C++ 示例
+
+以命令模式为例：
+
+```bash
+make run singleton
+```
+
+将 `singleton` 替换为你想运行的模式名称即可。
+
+#### 其他 C++ 命令
+
+```bash
+make list     # 列出所有可用的 C++ 示例
+make clean    # 清理 C++ 构建文件
+make help     # 显示帮助信息
+```
