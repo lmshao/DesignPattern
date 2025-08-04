@@ -128,9 +128,7 @@ struct RemoteControl {
 
 impl RemoteControl {
     fn new() -> Self {
-        Self {
-            last_command: None,
-        }
+        Self { last_command: None }
     }
 
     fn press_button(&mut self, mut command: Box<dyn Command>) {
