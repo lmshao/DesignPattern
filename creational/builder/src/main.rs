@@ -22,7 +22,11 @@ struct MyComputerBuilder {
 
 impl MyComputerBuilder {
     fn new() -> Self {
-        Self { cpu: String::new(), ram: 0, storage: 0 }
+        Self {
+            cpu: String::new(),
+            ram: 0,
+            storage: 0,
+        }
     }
 }
 
@@ -60,5 +64,8 @@ impl Director {
 fn main() {
     let mut builder = MyComputerBuilder::new();
     let gaming_pc = Director::construct_gaming_pc(&mut builder);
-    println!("Gaming PC: CPU={}, RAM={}GB, Storage={}GB", gaming_pc.cpu, gaming_pc.ram, gaming_pc.storage);
+    println!(
+        "Gaming PC: CPU={}, RAM={}GB, Storage={}GB",
+        gaming_pc.cpu, gaming_pc.ram, gaming_pc.storage
+    );
 }

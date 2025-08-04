@@ -25,11 +25,7 @@ struct Car {
 
 impl Car {
     fn new(brand: String, model: String, year: u32) -> Self {
-        Self {
-            brand,
-            model,
-            year,
-        }
+        Self { brand, model, year }
     }
 }
 
@@ -56,11 +52,7 @@ struct Motorcycle {
 
 impl Motorcycle {
     fn new(brand: String, model: String, year: u32) -> Self {
-        Self {
-            brand,
-            model,
-            year,
-        }
+        Self { brand, model, year }
     }
 }
 
@@ -107,7 +99,10 @@ impl Vehicle for Truck {
     }
 
     fn get_info(&self) -> String {
-        format!("Truck: {} {} ({}) - Capacity: {} tons", self.brand, self.model, self.year, self.capacity)
+        format!(
+            "Truck: {} {} ({}) - Capacity: {} tons",
+            self.brand, self.model, self.year, self.capacity
+        )
     }
 }
 
@@ -168,16 +163,34 @@ struct VehicleManufacturer {
 impl VehicleManufacturer {
     fn new() -> Self {
         let mut factories: HashMap<String, Box<dyn VehicleFactory>> = HashMap::new();
-        factories.insert("car".to_string(), Box::new(CarFactory) as Box<dyn VehicleFactory>);
-        factories.insert("motorcycle".to_string(), Box::new(MotorcycleFactory) as Box<dyn VehicleFactory>);
-        factories.insert("truck".to_string(), Box::new(TruckFactory) as Box<dyn VehicleFactory>);
-        
+        factories.insert(
+            "car".to_string(),
+            Box::new(CarFactory) as Box<dyn VehicleFactory>,
+        );
+        factories.insert(
+            "motorcycle".to_string(),
+            Box::new(MotorcycleFactory) as Box<dyn VehicleFactory>,
+        );
+        factories.insert(
+            "truck".to_string(),
+            Box::new(TruckFactory) as Box<dyn VehicleFactory>,
+        );
+
         Self { factories }
     }
 
-    fn manufacture_vehicle(&self, vehicle_type: &str, brand: String, model: String, year: u32) -> Option<Box<dyn Vehicle>> {
+    fn manufacture_vehicle(
+        &self,
+        vehicle_type: &str,
+        brand: String,
+        model: String,
+        year: u32,
+    ) -> Option<Box<dyn Vehicle>> {
         if let Some(factory) = self.factories.get(vehicle_type) {
-            println!("🏭 Using {} to manufacture vehicle", factory.get_factory_name());
+            println!(
+                "🏭 Using {} to manufacture vehicle",
+                factory.get_factory_name()
+            );
             Some(factory.create_vehicle(brand, model, year))
         } else {
             println!("❌ Unknown vehicle type: {}", vehicle_type);
@@ -199,7 +212,7 @@ fn main() {
 
     // Create vehicle manufacturer
     let manufacturer = VehicleManufacturer::new();
-    
+
     // Display available vehicle types
     manufacturer.list_available_types();
     println!();
@@ -214,7 +227,12 @@ fn main() {
     let mut manufactured_vehicles: Vec<Box<dyn Vehicle>> = Vec::new();
 
     for (vehicle_type, brand, model, year) in vehicles {
-        if let Some(vehicle) = manufacturer.manufacture_vehicle(vehicle_type, brand.to_string(), model.to_string(), year) {
+        if let Some(vehicle) = manufacturer.manufacture_vehicle(
+            vehicle_type,
+            brand.to_string(),
+            model.to_string(),
+            year,
+        ) {
             manufactured_vehicles.push(vehicle);
         }
         println!();
@@ -223,7 +241,7 @@ fn main() {
     // Test manufactured vehicles
     println!("🚗 Testing manufactured vehicles:");
     println!("{}", "=".repeat(30));
-    
+
     for vehicle in &manufactured_vehicles {
         println!("📋 {}", vehicle.get_info());
         vehicle.start_engine();

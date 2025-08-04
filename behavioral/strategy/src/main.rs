@@ -68,7 +68,10 @@ impl PaymentStrategy for PayPalPayment {
     fn pay(&self, amount: f64) -> bool {
         println!("📧 Processing PayPal payment:");
         println!("   Email: {}", self.email);
-        println!("   Password: {} (verified)", "*".repeat(self.password.len()));
+        println!(
+            "   Password: {} (verified)",
+            "*".repeat(self.password.len())
+        );
         println!("   Amount: ${:.2}", amount);
 
         // Simulate payment processing
@@ -260,11 +263,11 @@ fn main() {
     println!("\n🧹 Demonstrating cart management:");
     println!("{}", "=".repeat(40));
     cart.clear();
-    
+
     // Add new items after clearing
     cart.add_item("Book".to_string(), 19.99);
     cart.add_item("Pen".to_string(), 2.99);
-    
+
     // Set a payment strategy and checkout again
     cart.set_payment_strategy(Box::new(CreditCardPayment::new(
         "9876543210987654".to_string(),

@@ -200,12 +200,21 @@ fn main() {
     resume_template.add_skill("JavaScript".to_string());
 
     // Create report template
-    let mut report_template = Report::new("Q4 Sales Report".to_string(), "Sales Department".to_string());
+    let mut report_template = Report::new(
+        "Q4 Sales Report".to_string(),
+        "Sales Department".to_string(),
+    );
     report_template.set_content("This quarter's sales have reached the target...".to_string());
 
     // Register templates
-    manager.register_template("Resume Template".to_string(), Document::Resume(resume_template));
-    manager.register_template("Report Template".to_string(), Document::Report(report_template));
+    manager.register_template(
+        "Resume Template".to_string(),
+        Document::Resume(resume_template),
+    );
+    manager.register_template(
+        "Report Template".to_string(),
+        Document::Report(report_template),
+    );
 
     // Display available templates
     manager.list_templates();
